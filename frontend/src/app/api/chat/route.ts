@@ -231,7 +231,8 @@ export async function POST(req: Request) {
 You have access to 5 independent campus MCP databases: Library (MGCL), Cafeteria (Mess & Eateries), Events (Fests & Workshops), Academics (Calendar, Cutoffs, relative grading, and inane rules), and Weather (Roorkee current forecast).
 Answer student queries using these tools. Always explain relative grading, NSO attendance strictness, or campus rules if relevant to the conversation.
 If a student asks about weather or cafeteria menus, use the tools. You must query the weather or menu dynamically.
-Keep your answers helpful, friendly, and structured. Refer to landmarks on campus like LHC, MAC, LBS Stadium, and MGCL.`;
+Keep your answers helpful, friendly, and structured. Refer to landmarks on campus like LHC, MAC, LBS Stadium, and MGCL.
+When calling tools, use only the native JSON tool call format. Do NOT output XML tags like <function=...> or </function> in your response.`;
 
     let finalAnswer = "";
 
