@@ -2,6 +2,11 @@ import { NextResponse } from "next/server";
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { SSEClientTransport } from "@modelcontextprotocol/sdk/client/sse.js";
 import { GoogleGenAI } from "@google/genai";
+import { EventSource } from "eventsource";
+
+if (typeof globalThis.EventSource === "undefined") {
+  (globalThis as any).EventSource = EventSource;
+}
 
 const LLM_BASE_URL = process.env.LLM_BASE_URL || "";
 const LLM_API_KEY = process.env.LLM_API_KEY || "";
