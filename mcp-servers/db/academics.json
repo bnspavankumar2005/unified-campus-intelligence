@@ -1,0 +1,104 @@
+{
+  "academicCalendar": [
+    {"event": "Admission cum Academic Registration for new Ph.D. and Masters' students", "date": "2026-07-14", "day": "Tuesday"},
+    {"event": "Academic Registration for existing students in physical mode", "date": "2026-07-14 to 2026-07-15", "day": "Tuesday - Wednesday"},
+    {"event": "Orientation Program for new Ph.D. and Masters' students", "date": "2026-07-15", "day": "Wednesday"},
+    {"event": "Commencement of Classes (except UG I year)", "date": "2026-07-16", "day": "Thursday"},
+    {"event": "Re-examination and second examination (for Spring Semester 2025-26)", "date": "2026-07-16 to 2026-07-18", "day": "Thursday - Saturday"},
+    {"event": "Academic Registration for new UG students", "date": "2026-07-24", "day": "Friday"},
+    {"event": "Orientation Program – Newly Admitted UG Students", "date": "2026-07-25 to 2026-07-26 and 2026-08-01 to 2026-08-02", "day": "Saturday - Sunday"},
+    {"event": "Commencement of Classes for UG I year", "date": "2026-07-27", "day": "Monday"},
+    {"event": "Last date for Academic Registration with a late fine", "date": "2026-07-31", "day": "Friday"},
+    {"event": "Last date for adding/changing courses for all programs", "date": "2026-08-03", "day": "Monday"},
+    {"event": "Last date for submission of mandatory documents for newly admitted students", "date": "2026-08-27", "day": "Thursday"},
+    {"event": "Convocation 2026", "date": "2026-09-19 or 2026-09-26", "day": "Saturday"},
+    {"event": "Mid-Term Examinations (MTE) (except Sunday)", "date": "2026-09-10 to 2026-09-15", "day": "Thursday - Tuesday"},
+    {"event": "Last date for informing students about MTE performance", "date": "2026-09-28", "day": "Monday"},
+    {"event": "Submission of feedback/response form - I on online portal", "date": "2026-09-28 to 2026-10-01", "day": "Monday - Thursday"},
+    {"event": "Sangram 2026", "date": "2026-10-03 to 2026-10-04", "day": "Saturday - Sunday"},
+    {"event": "Last date for withdrawal of courses", "date": "2026-10-05", "day": "Monday"},
+    {"event": "Thomso 2026", "date": "2026-10-23 to 2026-10-25", "day": "Friday - Sunday"},
+    {"event": "Submission of feedback/response form - II on online portal", "date": "2026-11-05 to 2026-11-11", "day": "Thursday - Wednesday"},
+    {"event": "Last date of teaching", "date": "2026-11-11", "day": "Wednesday"},
+    {"event": "End Term Examinations (ETE) (excluding Sunday & Holidays)", "date": "2026-11-13 to 2026-11-24", "day": "Friday - Tuesday"},
+    {"event": "Institute Foundation Day", "date": "2026-11-25", "day": "Wednesday"},
+    {"event": "Last date of showing ETE answer scripts", "date": "2026-12-01", "day": "Tuesday"},
+    {"event": "Last date of grade communication to students", "date": "2026-12-03", "day": "Thursday"},
+    {"event": "Last date for students to apply for grade revision", "date": "2026-12-04", "day": "Friday"},
+    {"event": "Winter vacation for UG students (except IDD final Year)", "date": "2026-12-05 to 2027-01-06", "day": "Saturday - Wednesday"}
+  ],
+  "holidays": [
+    {"name": "Independence Day", "date": "2026-08-15", "day": "Saturday"},
+    {"name": "Id-e-Milad (Prophet Mohammad's Birthday)", "date": "2026-08-26", "day": "Wednesday"},
+    {"name": "Raksha Bandhan", "date": "2026-08-28", "day": "Friday"},
+    {"name": "Janamashtami", "date": "2026-09-04", "day": "Friday"},
+    {"name": "Mahatma Gandhi's Birthday", "date": "2026-10-02", "day": "Friday"},
+    {"name": "Mahashtami", "date": "2026-10-19", "day": "Monday"},
+    {"name": "Mahanavmi/Dussehra (Vijaydashmi)", "date": "2026-10-20", "day": "Tuesday"},
+    {"name": "Diwali (Deepavali)", "date": "2026-11-08", "day": "Sunday"},
+    {"name": "Govardhan Puja", "date": "2026-11-09", "day": "Monday"},
+    {"name": "Guru Nanak's Birthday", "date": "2026-11-24", "day": "Tuesday"},
+    {"name": "Christmas Day", "date": "2026-12-25", "day": "Friday"}
+  ],
+  "branchChangeCutoffs2024": [
+    {"branch": "Computer Science and Engineering (CSE)", "cutoff": 9.69},
+    {"branch": "Data Science and Artificial Intelligence (DSAI)", "cutoff": 9.47},
+    {"branch": "Mathematics and Computing (MnC)", "cutoff": 9.47},
+    {"branch": "Electronics and Communication Engineering (ECE)", "cutoff": 9.35},
+    {"branch": "Electrical Engineering (EE)", "cutoff": 9.22},
+    {"branch": "Mechanical Engineering (ME)", "cutoff": 8.78},
+    {"branch": "Chemical Engineering (CH)", "cutoff": 8.72},
+    {"branch": "Economics (ECO)", "cutoff": 8.70},
+    {"branch": "Energy Engineering (ENE)", "cutoff": 8.696},
+    {"branch": "Engineering Physics (EPH)", "cutoff": 8.42},
+    {"branch": "Metallurgical & Materials Eng. (MT)", "cutoff": 8.21},
+    {"branch": "Geological Technology (GT)", "cutoff": 8.05}
+  ],
+  "inaneRules": [
+    {
+      "ruleId": "rule_001",
+      "title": "Main Building Lawns Prohibition",
+      "description": "Stepping on the main-building lawns is strictly prohibited (you might get shot at sight, metaphorically speaking, or fined heavily by the security guards)."
+    },
+    {
+      "ruleId": "rule_002",
+      "title": "Chhat Climbing Prohibition",
+      "description": "Climbing the famous 'chhats' (roofs) of the Badminton Court, MAC, and BioTech Department is strictly prohibited."
+    },
+    {
+      "ruleId": "rule_003",
+      "title": "NSO Attendance Strictness",
+      "description": "For some weird reason, attendance in NSO (National Sports Organisation) is taken far more seriously than in actual core lectures."
+    },
+    {
+      "ruleId": "rule_004",
+      "title": "Library Sleeping Prohibition",
+      "description": "Sleeping inside the Mahatma Gandhi Central Library (MGCL) is strictly prohibited. Security guards will wake you up."
+    },
+    {
+      "ruleId": "rule_005",
+      "title": "The Pattagobhi Exam Ritual",
+      "description": "Whether or not you are a 'ghissu' (studious student), it is an unsaid rule to share the legendary 'pattagobhi' (cabbage rolls/dish) before your mid-term and end-term exams."
+    },
+    {
+      "ruleId": "rule_006",
+      "title": "IITR Confessions Warning",
+      "description": "DO NOT VISIT the IITR Confessions page if you value your sanity and productivity."
+    },
+    {
+      "ruleId": "rule_007",
+      "title": "Bitter Liquid Prohibition",
+      "description": "Consumption of a certain particularly bitter liquid (alcohol) is strictly prohibited on campus."
+    }
+  ],
+  "acads101": {
+    "grading": "IIT Roorkee uses relative grading. You are graded based on your performance relative to everyone else who took the course.",
+    "backsPolicy": "Most courses require a minimum attendance of 75%. If you fall below this, you get a 'back' (attendance back) and must re-register for the course.",
+    "extracurricularRequirement": "It is compulsory for every first-year student to enroll in at least one activity: NCC (discipline & patriot values), NSS (community service), or NSO (sports & fitness). NSO is taken very seriously.",
+    "creditsDescription": "Credits determine the weight of a course on your CGPA. For example, a 4-credit course has twice the impact on your GPA than a 2-credit course."
+  },
+  "sparkFellowship": {
+    "description": "A prestigious undergraduate research program at IITR. Provides a weekly stipend and a project-funded summer internship working under IITR professors.",
+    "eligibility": "Open to pre-final and sophomore students with a high CGPA."
+  }
+}

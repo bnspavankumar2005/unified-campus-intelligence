@@ -1,0 +1,15 @@
+{
+  "name": "unified-campus-intelligence-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:servers": "npm run dev --prefix mcp-servers",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev": "concurrently \"npm run dev:servers\" \"npm run dev:frontend\"",
+    "install:all": "npm install && npm install --prefix mcp-servers && npm install --prefix frontend"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

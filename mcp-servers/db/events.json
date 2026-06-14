@@ -1,0 +1,96 @@
+{
+  "fests": [
+    {
+      "name": "Thomso 2026",
+      "type": "Annual Cultural Festival",
+      "dates": "2026-10-23 to 2026-10-25",
+      "description": "The annual cultural festival of IIT Roorkee. A three-day extravaganza of music, art, fashion, dance, and literature, featuring top celebrities and students from all over India.",
+      "eventsList": [
+        {"name": "Battle of Bands", "time": "Day 1, 4:00 PM", "venue": "LBS Stadium", "rules": "Bands must perform at least one original composition."},
+        {"name": "Vogue (Fashion Show)", "time": "Day 2, 7:00 PM", "venue": "Convocation Hall", "rules": "Theme-based walk. Maximum 12 members per team."},
+        {"name": "Street Play (Nukkad Natak)", "time": "Day 2, 11:00 AM", "venue": "MAC Lawn", "rules": "Time limit is 20 minutes. No electrical instruments allowed."},
+        {"name": "Pronite (Celebrity Performance)", "time": "Day 3, 8:00 PM", "venue": "LBS Stadium", "rules": "Entry restricted to students with valid Thomso ID passes."}
+      ]
+    },
+    {
+      "name": "Cognizance 2026",
+      "type": "Annual Technical Festival",
+      "dates": "2026-03-20 to 2026-03-22",
+      "description": "The 2nd largest technical festival in Asia. Hosts competitive coding events, paper presentations, guest lectures, robotics battles, and startup expos.",
+      "eventsList": [
+        {"name": "Insomnia (Codeathon)", "time": "Day 1, 9:00 PM", "venue": "LHC / Online", "rules": "12-hour overnight team coding competition."},
+        {"name": "RoboWars", "time": "Day 2, 2:00 PM", "venue": "MAC Basketball Court", "rules": "Wired or wireless robots under 30kg category."},
+        {"name": "Prototype Exhibition", "time": "Day 3, 10:00 AM", "venue": "Main Building Lawns (Special Permit)", "rules": "Project model demonstration with working hardware."}
+      ]
+    },
+    {
+      "name": "Sangram 2026",
+      "type": "Annual Sports Festival",
+      "dates": "2026-10-03 to 2026-10-04",
+      "description": "The official sports festival of IITR, bringing together teams from premier technical and engineering institutes across India to compete in 15+ sports.",
+      "eventsList": [
+        {"name": "Inter-Collegiate Cricket Cup", "time": "Day 1 & 2, All Day", "venue": "LBS Stadium", "rules": "T20 format, standard ICC rules apply."},
+        {"name": "Football Championship", "time": "Day 1 & 2, All Day", "venue": "Football Field", "rules": "Standard 90-minute matches, direct knockout."},
+        {"name": "Athletics Meet", "time": "Day 2, 8:00 AM", "venue": "LBS Running Track", "rules": "100m, 400m, 1500m races and relay finals."}
+      ]
+    },
+    {
+      "name": "NSS Social Summit 2026",
+      "type": "Socio-Technical Festival",
+      "dates": "2026-02-14 to 2026-02-15",
+      "description": "An annual social summit organized by NSS IITR focusing on solving grassroots problems, featuring case studies, panels, and community development pitches.",
+      "eventsList": [
+        {"name": "Social Case Study", "time": "Day 1, 10:30 AM", "venue": "LHC-101", "rules": "Propose technical solutions to rural sanitation and water harvesting."},
+        {"name": "Blood Donation Drive", "time": "Day 1 & 2, All Day", "venue": "MAC Hall", "rules": "Conducted in collaboration with IITR Hospital staff."}
+      ]
+    },
+    {
+      "name": "Shrishti 2026",
+      "type": "Hobbies Club Exhibition",
+      "dates": "2026-04-10 to 2026-04-12",
+      "description": "The annual exhibition of the Hobbies Club. All sections (Software, Electronics, Fine Arts, Photography, Astronomy, Robotics) showcase their year-long projects.",
+      "eventsList": [
+        {"name": "SDSLabs Software Expo", "time": "All Days", "venue": "SAC", "rules": "Interactive web/mobile applications demonstration."},
+        {"name": "Electronics & Robotics Demos", "time": "All Days", "venue": "SAC", "rules": "Autonomous drones and smart home automation displays."}
+      ]
+    }
+  ],
+  "upcomingClubEvents": [
+    {
+      "id": "club_001",
+      "clubName": "SDSLabs",
+      "eventName": "DevTalk: Intro to Next.js & Web3",
+      "date": "2026-06-20",
+      "time": "6:00 PM",
+      "venue": "MAC Auditorium",
+      "description": "Learn the fundamentals of Next.js App Router and how it connects to decentralized apps. Open to all branches."
+    },
+    {
+      "id": "club_002",
+      "clubName": "PAG (Programming Guild)",
+      "eventName": "Algorejo (Competitive Coding Contest)",
+      "date": "2026-06-21",
+      "time": "9:00 PM",
+      "venue": "Online (HackerEarth)",
+      "description": "A 3-hour competitive coding challenge designed specifically for beginners to test data structures knowledge."
+    },
+    {
+      "id": "club_003",
+      "clubName": "InfoSec IITR",
+      "eventName": "Freshman CTF (Capture The Flag)",
+      "date": "2026-06-27",
+      "time": "12:00 PM",
+      "venue": "Online / LHC Room",
+      "description": "Jeopardy-style security hacking contest covering cryptography, web security, and reverse engineering."
+    },
+    {
+      "id": "club_004",
+      "clubName": "Choreography Section",
+      "eventName": "Open Dance Workshop",
+      "date": "2026-06-22",
+      "time": "5:30 PM",
+      "venue": "MAC Dance Room",
+      "description": "Free intermediate hip-hop and contemporary dance session. No prior experience required."
+    }
+  ]
+}

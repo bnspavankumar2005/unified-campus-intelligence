@@ -1,0 +1,77 @@
+{
+  "libraryName": "Mahatma Gandhi Central Library (MGCL)",
+  "totalBooks": "350,000+",
+  "floors": 3,
+  "features": [
+    "Fully air-conditioned",
+    "Wi-Fi enabled study halls",
+    "Digital catalog terminals",
+    "Group discussion rooms",
+    "Reference section",
+    "Media library center"
+  ],
+  "rules": [
+    "Sleeping in the library is strictly prohibited.",
+    "Silence must be maintained in the study zones.",
+    "Books can be issued for a maximum of 15 days for UG students.",
+    "Late fee of Rs. 2 per day applies after the due date."
+  ],
+  "localBooks": [
+    {
+      "id": "book_001",
+      "title": "Introduction to Algorithms",
+      "authors": ["Thomas H. Cormen", "Charles E. Leiserson", "Ronald L. Rivest", "Clifford Stein"],
+      "isbn": "9780262033848",
+      "callNumber": "005.11 COR",
+      "location": "MGCL Stack Area 2, Row D",
+      "status": "Available",
+      "totalCopies": 12,
+      "availableCopies": 5
+    },
+    {
+      "id": "book_002",
+      "title": "Concepts of Physics",
+      "authors": ["H. C. Verma"],
+      "isbn": "9788177091878",
+      "callNumber": "530.1 VER",
+      "location": "MGCL Stack Area 1, Row A",
+      "status": "Available",
+      "totalCopies": 30,
+      "availableCopies": 21
+    },
+    {
+      "id": "book_003",
+      "title": "University Physics",
+      "authors": ["Hugh D. Young", "Roger A. Freedman"],
+      "isbn": "9780321973610",
+      "callNumber": "530.2 YOU",
+      "location": "MGCL Stack Area 1, Row C",
+      "status": "Checked Out",
+      "totalCopies": 8,
+      "availableCopies": 0,
+      "dueDate": "2026-06-25"
+    },
+    {
+      "id": "book_004",
+      "title": "Modern Operating Systems",
+      "authors": ["Andrew S. Tanenbaum", "Herbert Bos"],
+      "isbn": "9780133591620",
+      "callNumber": "005.43 TAN",
+      "location": "MGCL Stack Area 2, Row F",
+      "status": "Available",
+      "totalCopies": 10,
+      "availableCopies": 4
+    },
+    {
+      "id": "book_005",
+      "title": "Let Us C",
+      "authors": ["Yashavant Kanetkar"],
+      "isbn": "9789387284494",
+      "callNumber": "005.13 KAN",
+      "location": "MGCL Stack Area 2, Row A",
+      "status": "Available",
+      "totalCopies": 25,
+      "availableCopies": 18
+    }
+  ]
+}

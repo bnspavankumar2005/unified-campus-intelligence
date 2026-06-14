@@ -1,0 +1,95 @@
+{
+  "bhawans": ["Cautley Bhawan", "Rajendra Bhawan", "Radhakrishnan Bhawan", "Sarojini Bhawan", "Kasturba Bhawan", "Ravindra Bhawan", "Ganga Bhawan", "Govind Bhawan"],
+  "weeklyMenu": {
+    "Monday": {
+      "breakfast": "Poha Namkeen, Jalebi, Imli Chutney, Hari Chutney, Aloo Masala",
+      "lunch": "Rajma, Alu Shimla, Sambar, Boondi Raita, Fried Rice, Lal Mirch Chutney, Watermelon (Tarbooz), Nimbu Pani",
+      "dinner": "Mix Veg., Dal Urad Chana, Karela Onion Bhujia, Veg Rice, Ice Cream (Butter Scotch)"
+    },
+    "Tuesday": {
+      "breakfast": "Idli Sambar, Aloo Masala, Special Sprouts",
+      "lunch": "Kadhi Pyaz Pakodi, Dal Masoor Kali, Rasam, Alu Parwal, Mix Fruit, Fryums, Vinegar Onion, Rasna (Lemon)",
+      "dinner": "Poori (Palak + Normal), Chhole Curry, Kaddu Dry, Alu Mater Curry, Rice, Makhana Kheer"
+    },
+    "Wednesday": {
+      "breakfast": "Samosa Chhola, Imli Chutney, Hari Chutney, Protein Sprouts",
+      "lunch": "Kala Chana Curry, Taheri, Hari Chutney, Baingan Masala, Sambar, Kheera Raita, Papaya, Roohafza",
+      "dinner": "Kadhai Paneer / Chicken Biryani + Salan, Dal Makhani, Gulab Jamun, Veg Pulao, Thandai"
+    },
+    "Thursday": {
+      "breakfast": "Maggi (Fried + Soup), Protein Sprouts, Aloo Masala, Vegetable Dalia",
+      "lunch": "Sambar, Bhindi Masala, Arhar Dal Tadka, Sweet Mango Chutney, Muskmelon (Kharbuja), Dahi, Yellow Moong Masoor Vegetable Khichdi (Ghee), Papad",
+      "dinner": "Veg. Korma, Besan Gutta Semi Dry, Dal Mix Tadka, Veg Pulao, Thandai, Milk 200 ml"
+    },
+    "Friday": {
+      "breakfast": "Matar + Kulcha, Imli Chutney, Special Sprout with Corn, Aloo Masala",
+      "lunch": "Tori Dry, Rajma Masala, Sambar, Jeera Onion Rice, Mango, Dahi, Rasna (Orange)",
+      "dinner": "Egg Curry / Matar Mushroom, Dal Makhani, Jeera Onion Rice, Rabri Imarti"
+    },
+    "Saturday": {
+      "breakfast": "Dosa + Masala, Sambhar, Nariyal Chutney, Aloo Masala",
+      "lunch": "Chhole Bhature, Alu Tomato Curry, Matar Pulao, Rasam, Mix Raita, Fruit, Roohafza",
+      "dinner": "Lauki Kofta, Kathal Masala (Semi Dry), Dal Arhar Tadka, Veg. Biryani Rice, Ice Cream (Chocolate)"
+    },
+    "Sunday": {
+      "breakfast": "Alu Pyaz Paratha, Aloo Tomato Curry, Aloo Masala, Vegetable Dalia",
+      "lunch": "Dal Punjabi, Mix Veg Korma Soya, Dahi Alu, Rasam, Pyaz Tomato Raita, Mango Chutney, Nimbu Pani, Muskmelon (Kharbuja)",
+      "dinner": "Shahi Paneer / Chicken Curry, Dal Makhani, Custard, Rice"
+    }
+  },
+  "dailyItems": {
+    "breakfast": "Milk 250ml, Tea, Coffee, Bread, Sprouts, Cornflakes or Chocos, Dalia, Sauce, Egg, Peanut Butter / Butter, Jam 25 gm, Nimbu",
+    "lunch": "Hari Mirch, Butter Roti, Plain Roti, Plain Rice, Saunf, Aachar, Salad, Green Chutney, Sugar",
+    "dinner": "Hari Mirch, Butter Roti, Plain Roti, Saunf, Aachar, Onion, Rasam"
+  },
+  "eateries": [
+    {
+      "name": "Desi Tadka",
+      "type": "North Indian / Fast Food",
+      "location": "Near Multi Activity Centre (MAC)",
+      "popularItems": ["Paneer Butter Masala", "Tandoori Roti", "Dal Makhani"],
+      "priceRating": "★★☆☆☆",
+      "timing": "11:00 AM - 11:00 PM"
+    },
+    {
+      "name": "Ramesh Dosa Shop",
+      "type": "South Indian",
+      "location": "Opposite Civil Lines Gate",
+      "popularItems": ["Masala Dosa", "Idli Sambar", "Filter Coffee"],
+      "priceRating": "★☆☆☆☆",
+      "timing": "7:00 AM - 9:00 PM"
+    },
+    {
+      "name": "Olive & Rustic House",
+      "type": "Italian / Continental",
+      "location": "Civil Lines",
+      "popularItems": ["Woodfired Pizza", "White Sauce Pasta", "Garlic Bread"],
+      "priceRating": "★★★☆☆",
+      "timing": "12:00 PM - 10:30 PM"
+    },
+    {
+      "name": "Peppery Herbs",
+      "type": "Fast Food / Chinese",
+      "location": "MAC Ground Floor",
+      "popularItems": ["Chilli Potato", "Veg Noodles", "Spring Rolls"],
+      "priceRating": "★★☆☆☆",
+      "timing": "10:00 AM - 10:00 PM"
+    },
+    {
+      "name": "Jain Uncle ki Dukaan",
+      "type": "Snacks & Shakes",
+      "location": "Near Rajendra Bhawan",
+      "popularItems": ["Cheese Patties", "Chocolate Shake", "Cold Coffee"],
+      "priceRating": "★☆☆☆☆",
+      "timing": "9:00 AM - 11:30 PM"
+    },
+    {
+      "name": "Baap of Rolls",
+      "type": "Rolls & Wraps",
+      "location": "Near Century Gate",
+      "popularItems": ["Double Egg Chicken Roll", "Paneer Tikka Roll"],
+      "priceRating": "★★☆☆☆",
+      "timing": "12:00 PM - 12:00 AM"
+    }
+  ]
+}
