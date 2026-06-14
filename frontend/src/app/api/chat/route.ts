@@ -243,11 +243,11 @@ Keep your answers helpful, friendly, and structured. Refer to landmarks on campu
       const functionDeclarations = STATIC_TOOLS.map((t) => ({
         name: t.name,
         description: t.description,
-        parameters: t.inputSchema
+        parameters: t.inputSchema as any
       }));
 
       // Map chat messages to Google Gen AI history format
-      const activeContents = messages.map((m: any) => ({
+      const activeContents: any[] = messages.map((m: any) => ({
         role: m.role === "assistant" ? "model" : "user",
         parts: [{ text: m.content }]
       }));
@@ -273,9 +273,9 @@ Keep your answers helpful, friendly, and structured. Refer to landmarks on campu
 
           const toolResponses = [];
           for (const call of functionCalls) {
-            const toolName = call.name;
+            const toolName = call.name || "";
             const toolArgs = call.args || {};
-            const serverName = toolToInterfaceMap[toolName];
+            const serverName = toolName ? toolToInterfaceMap[toolName] : undefined;
 
             if (!serverName) {
               toolResponses.push({
@@ -301,10 +301,10 @@ Keep your answers helpful, friendly, and structured. Refer to landmarks on campu
               logMcp("server-to-client", serverName, "initialize (Connected)", { status: "ready" });
 
               logMcp("client-to-server", serverName, "tools/call", { name: toolName, arguments: toolArgs });
-              const executionResult = await client.callTool({
+              const executionResult = (await client.callTool({
                 name: toolName,
                 arguments: toolArgs as any
-              });
+              })) as any;
 
               toolOutputText = (executionResult.content || [])
                 .map((c: any) => c.text || "")
@@ -425,10 +425,10 @@ Keep your answers helpful, friendly, and structured. Refer to landmarks on campu
               logMcp("server-to-client", serverName, "initialize (Connected)", { status: "ready" });
 
               logMcp("client-to-server", serverName, "tools/call", { name: toolName, arguments: toolArgs });
-              const executionResult = await client.callTool({
+              const executionResult = (await client.callTool({
                 name: toolName,
                 arguments: toolArgs
-              });
+              })) as any;
 
               toolOutputText = (executionResult.content || [])
                 .map((c: any) => c.text || "")
