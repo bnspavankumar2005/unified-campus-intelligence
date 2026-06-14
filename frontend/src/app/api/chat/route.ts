@@ -290,7 +290,7 @@ Keep your answers helpful, friendly, and structured. Refer to landmarks on campu
         if (functionCalls && functionCalls.length > 0) {
           activeContents.push({
             role: "model",
-            parts: functionCalls.map((call) => ({ functionCall: call }))
+            parts: functionCalls.map((call: any) => ({ functionCall: call }))
           });
 
           const toolResponses = [];
