@@ -259,14 +259,31 @@ Keep your answers helpful, friendly, and structured. Refer to landmarks on campu
 
       let loopCount = 0;
       while (loopCount < 5) {
-        const response = await ai.models.generateContent({
-          model: LLM_MODEL,
-          contents: activeContents,
-          config: {
-            systemInstruction,
-            tools: [{ functionDeclarations }]
+        let response: any;
+        let sdkRetries = 3;
+        let sdkDelay = 1000;
+
+        for (let i = 0; i < sdkRetries; i++) {
+          try {
+            response = await ai.models.generateContent({
+              model: LLM_MODEL,
+              contents: activeContents,
+              config: {
+                systemInstruction,
+                tools: [{ functionDeclarations }]
+              }
+            });
+            break;
+          } catch (err: any) {
+            const isRateLimit = err.message?.includes("429") || err.status === 429 || JSON.stringify(err).includes("429");
+            if (isRateLimit && i < sdkRetries - 1) {
+              await new Promise((resolve) => setTimeout(resolve, sdkDelay));
+              sdkDelay *= 2;
+              continue;
+            }
+            throw err;
           }
-        });
+        }
 
         const functionCalls = response.functionCalls;
 
@@ -375,20 +392,33 @@ Keep your answers helpful, friendly, and structured. Refer to landmarks on campu
           temperature: 0
         };
 
-        const response = await fetch(`${LLM_BASE_URL}/chat/completions`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${LLM_API_KEY}`
-          },
-          body: JSON.stringify(requestPayload)
-        });
+        let response: any;
+        let restRetries = 3;
+        let restDelay = 1000;
+
+        for (let i = 0; i < restRetries; i++) {
+          response = await fetch(`${LLM_BASE_URL}/chat/completions`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${LLM_API_KEY}`
+            },
+            body: JSON.stringify(requestPayload)
+          });
+
+          if (response.status === 429 && i < restRetries - 1) {
+            await new Promise((resolve) => setTimeout(resolve, restDelay));
+            restDelay *= 2;
+            continue;
+          }
+          break;
+        }
 
         if (!response.ok) {
           const errText = await response.text();
           if (response.status === 429) {
             return NextResponse.json({
-              content: "⚠️ **Gemini API Limit Reached (429 Quota Exceeded)**\n\nYour Google AI Studio developer key has exceeded its daily free tier quota (20 requests).\n\n**How to fix this in 30 seconds (100% Free):**\n\n1. Open your `frontend/.env` file.\n2. **Option A (Recommended)**: Switch to **Option 1 (Groq API)**. You can get a free, high-limit developer key in 10 seconds at [console.groq.com/keys](https://console.groq.com/keys), then uncomment Option 1 and set:\n   * `LLM_BASE_URL=https://api.groq.com/openai/v1`\n   * `LLM_API_KEY=gsk_YOUR_NEW_KEY`\n   * `LLM_MODEL=gemma2-9b-it`\n3. **Option B (Local Offline)**: Switch to **Option 4 (Ollama)** to run `gemma2` offline on your machine with zero rate limits!\n4. Restart the server (`npm run dev`) and enjoy unlimited queries with Aura!",
+              content: "⚠️ **Rate Limit Exceeded (429)**\n\nThe AI provider has reached its rate limits. Please try again in a moment.",
               logs: mcpLogs
             });
           }
