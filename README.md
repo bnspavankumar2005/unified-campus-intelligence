@@ -9,14 +9,14 @@ Instead of dumping scattered data (messes, calendars, libraries, weather) into a
 ## 🏛️ Architecture Overview
 
 The system consists of three main tiers:
-1. **Dashboard UI (Next.js)**: A dark-themed, glassmorphic student dashboard containing specialized widgets and an interactive AI Assistant. It features a **Real-Time MCP Inspector** that displays the raw JSON-RPC packages sent and received over SSE.
-2. **AI Gateway (Next.js App Router API)**: The orchestration layer that acts as the MCP client, fetching tools, setting up schemas, and executing the LLM tool-calling loop.
+1. **Dashboard UI (Next.js)**: A dark-themed student dashboard containing specialized widgets and an integrated AI Assistant sidebar. It features a size-bounded, scrollable **Real-Time MCP Inspector** that displays the raw JSON-RPC packages sent and received over SSE.
+2. **AI Gateway (Next.js App Router API)**: The orchestration layer that acts as the MCP client, fetching tools, setting up schemas (handling strict uppercase formatting requirements), and executing the LLM tool-calling loop.
 3. **MCP Server Hub (Express & Node.js)**: A single Node process hosting five independent SSE-based MCP servers (Library, Cafeteria, Events, Academics, Weather).
 
 ```mermaid
 graph TD
     Client[Next.js Frontend / Dashboard] <--> |Fetch / HTTP| Gateway[Next.js Backend / API Gateway]
-    Gateway <--> |Tool Calls & Prompts| LLM[Gemma 2 / LLM Provider via OpenAI-Compatible API]
+    Gateway <--> |Tool Calls & Prompts| LLM[Gemma 4 / LLM Provider via Google SDK or OpenAI API]
     Gateway <--> |MCP Protocol over SSE| CafeteriaMCP[Cafeteria MCP Server]
     Gateway <--> |MCP Protocol over SSE| LibraryMCP[Library MCP Server]
     Gateway <--> |MCP Protocol over SSE| EventsMCP[Events MCP Server]
@@ -37,8 +37,13 @@ graph TD
 2. **Live APIs Integration**:
    - **Open Library API**: The Library MCP queries `openlibrary.org` live for search terms, enriches results with local MGCL catalog shelf mappings and availability markers, and returns them globally without requiring IITR intranet/WiFi access.
    - **Open-Meteo API**: The Weather MCP queries real-time conditions for Roorkee, providing live temperature, rain alerts, and campus advice (e.g. warnings about wet LBS Stadium tracks).
-3. **Embedded AI Assistant (Aura)**: An intelligent agent that routes natural-language questions to the correct MCP servers in real-time. It can query multiple servers at once to answer complex questions (e.g., *"Is it raining in Roorkee today? Also, what's for dinner in the mess?"*).
-4. **Real-Time MCP Inspector Console**: A developer console widget at the bottom of the page that lists all JSON-RPC transaction payloads in real-time, showing how the client communicates with the server endpoints.
+3. **Embedded AI Assistant (Friday)**: An intelligent agent that routes natural-language questions to the correct MCP servers in real-time. It can query multiple servers at once to answer complex questions (e.g., *"Is it raining in Roorkee today? Also, what's for dinner in the mess?"*).
+4. **Real-Time MCP Inspector Console**: A developer console widget at the bottom of the page that lists all JSON-RPC transaction payloads in real-time. It is constrained to a `max-height` of `250px` with internal scrolling to preserve layout integrity.
+5. **High-Performance Fluid UI**: 
+   - Uses native viewport document scrolling without nested viewport lockouts.
+   - Leverages `position: fixed` background blur animations to avoid CPU/GPU layout repaints on scroll.
+   - Employs optimized transition effects on card states to eliminate frame drops.
+   - Prevents redundant widget queries (such as re-fetching weather or events) when toggling cafeteria tabs.
 
 ---
 
@@ -46,9 +51,9 @@ graph TD
 
 * **Frontend & Gateway**: React.js, Next.js (App Router), Vanilla CSS (styled for glassmorphism, transitions, and responsive grid layouts).
 * **MCP Backend Hub**: Node.js, Express, `@modelcontextprotocol/sdk`.
-* **LLM Engine**: OpenAI-compatible client integration supporting:
+* **LLM Engine**: OpenAI-compatible and native Google Gen AI SDK integration supporting:
+  - **Gemma 4** (`gemma-4-31b-it` via native Google Gen AI SDK client).
   - **Gemma 2** (via Groq or OpenRouter).
-  - **Gemini** (via Google AI Studio).
   - **Local Ollama** (offline development).
 
 ---
@@ -57,7 +62,7 @@ graph TD
 
 ### Prerequisites
 * Node.js (v18+)
-* An API Key for your LLM of choice (e.g., a free key from **Groq** or **Google AI Studio**)
+* An API Key for your LLM of choice (e.g., a free key from **Google AI Studio** or **Groq**)
 
 ### Step 1: Install Dependencies
 From the root of the project, run:
@@ -69,15 +74,15 @@ This will install all root, backend, and frontend dependencies.
 ### Step 2: Configure Environment Variables
 Navigate to the `frontend/` directory, create a `.env` file (or edit the template provided), and add your API Key:
 ```env
-# Groq (Gemma 2) - Recommended
-LLM_BASE_URL=https://api.groq.com/openai/v1
-LLM_API_KEY=gsk_YOUR_GROQ_KEY_HERE
-LLM_MODEL=gemma2-9b-it
+# OPTION 1: Google AI Studio (Gemma 4 - Native SDK)
+# Leave LLM_BASE_URL commented out to trigger native Google Gen AI SDK client
+LLM_API_KEY=YOUR_GEMINI_API_KEY
+LLM_MODEL=gemma-4-31b-it
 
-# Alternatively, Google AI Studio (Gemini)
-# LLM_BASE_URL=https://generativelanguage.googleapis.com/v1beta/openai
-# LLM_API_KEY=YOUR_GOOGLE_KEY_HERE
-# LLM_MODEL=gemini-2.5-flash
+# OPTION 2: Groq API (Gemma 2)
+# LLM_BASE_URL=https://api.groq.com/openai/v1
+# LLM_API_KEY=gsk_YOUR_GROQ_KEY_HERE
+# LLM_MODEL=gemma2-9b-it
 ```
 
 ### Step 3: Run the Complete Stack
