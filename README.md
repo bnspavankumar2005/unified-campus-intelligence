@@ -58,7 +58,7 @@ graph TD
 
 ---
 
-## 🚀 Setup & Launch (Under 2 Minutes)
+## 🚀 Setup & Launch
 
 ### Prerequisites
 * Node.js (v18+)
