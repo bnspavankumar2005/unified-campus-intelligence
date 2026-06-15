@@ -1,4 +1,4 @@
-# Unified Campus Intelligence Dashboard with AI Assistant (IIT Roorkee Edition)
+# Unified Campus Intelligence Dashboard with AI Assistant (IIT Roorkee)
 
 An elegant, real-time web portal that consolidates fragmented campus systems at **IIT Roorkee (IITR)** into a single dashboard. 
 
