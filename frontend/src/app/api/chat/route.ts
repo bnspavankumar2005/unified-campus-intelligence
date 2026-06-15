@@ -275,11 +275,26 @@ Keep your answers helpful, friendly, and structured. Refer to landmarks on campu
         parameters: formatSchemaForGoogle(t.inputSchema)
       }));
 
+      const isGemma = LLM_MODEL.toLowerCase().includes("gemma");
+
       // Map chat messages to Google Gen AI history format
-      const activeContents: any[] = messages.map((m: any) => ({
+      const activeContents: any[] = [];
+      
+      if (isGemma) {
+        activeContents.push({
+          role: "user",
+          parts: [{ text: `System Instruction:\n${systemInstruction}` }]
+        });
+        activeContents.push({
+          role: "model",
+          parts: [{ text: "Understood. I will act as Friday, your IITR Campus Intelligence Assistant, and use my tools to assist you." }]
+        });
+      }
+
+      activeContents.push(...messages.map((m: any) => ({
         role: m.role === "assistant" ? "model" : "user",
         parts: [{ text: m.content }]
-      }));
+      })));
 
       let loopCount = 0;
       while (loopCount < 5) {
@@ -293,7 +308,7 @@ Keep your answers helpful, friendly, and structured. Refer to landmarks on campu
               model: LLM_MODEL,
               contents: activeContents,
               config: {
-                systemInstruction,
+                ...(isGemma ? {} : { systemInstruction }),
                 tools: [{ functionDeclarations }]
               }
             });
