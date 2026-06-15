@@ -564,21 +564,29 @@ export default function Dashboard() {
 
         <div className="chat-messages-container">
           {messages.map((msg, idx) => (
-            <div key={idx} className={`chat-bubble ${msg.role}`}>
-              {msg.role === "assistant" ? (
-                <div className="markdown-text" dangerouslySetInnerHTML={{ 
-                  __html: msg.content
-                    .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-                    .replace(/\n/g, "<br/>") 
-                }} />
-              ) : (
-                msg.content
+            <div key={idx} className={`chat-row ${msg.role}`}>
+              {msg.role === "assistant" && (
+                <div className="assistant-avatar">🤖</div>
               )}
+              <div className={`chat-bubble ${msg.role}`}>
+                {msg.role === "assistant" ? (
+                  <div className="markdown-text" dangerouslySetInnerHTML={{ 
+                    __html: msg.content
+                      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+                      .replace(/\n/g, "<br/>") 
+                  }} />
+                ) : (
+                  msg.content
+                )}
+              </div>
             </div>
           ))}
           {chatLoading && (
-            <div className="chat-bubble assistant" style={{ fontStyle: "italic", color: "var(--text-muted)" }}>
-              Thinking and querying MCP servers...
+            <div className="chat-row assistant">
+              <div className="assistant-avatar">🤖</div>
+              <div className="chat-bubble assistant" style={{ fontStyle: "italic", color: "var(--text-muted)" }}>
+                Thinking and querying MCP servers...
+              </div>
             </div>
           )}
           <div ref={chatEndRef} />
