@@ -200,6 +200,30 @@ const STATIC_TOOLS = [
   }
 ];
 
+// Helper to recursively capitalize schema type names for Google Gen AI SDK compliance
+function formatSchemaForGoogle(schema: any): any {
+  if (!schema || typeof schema !== "object") return schema;
+
+  const formatted = { ...schema };
+  if (typeof formatted.type === "string") {
+    formatted.type = formatted.type.toUpperCase();
+  }
+
+  if (formatted.properties && typeof formatted.properties === "object") {
+    const formattedProps: any = {};
+    for (const key of Object.keys(formatted.properties)) {
+      formattedProps[key] = formatSchemaForGoogle(formatted.properties[key]);
+    }
+    formatted.properties = formattedProps;
+  }
+
+  if (formatted.items && typeof formatted.items === "object") {
+    formatted.items = formatSchemaForGoogle(formatted.items);
+  }
+
+  return formatted;
+}
+
 export async function POST(req: Request) {
   const mcpLogs: any[] = [];
 
@@ -244,11 +268,11 @@ Keep your answers helpful, friendly, and structured. Refer to landmarks on campu
       // ----------------------------------------------------
       const ai = new GoogleGenAI({ apiKey: LLM_API_KEY });
 
-      // Format tools for Google Gen AI
+      // Format tools for Google Gen AI with strict uppercase types
       const functionDeclarations = STATIC_TOOLS.map((t) => ({
         name: t.name,
         description: t.description,
-        parameters: t.inputSchema as any
+        parameters: formatSchemaForGoogle(t.inputSchema)
       }));
 
       // Map chat messages to Google Gen AI history format
