@@ -2,6 +2,8 @@
 
 An elegant, real-time web portal that consolidates fragmented campus systems at **IIT Roorkee (IITR)** into a single dashboard. 
 
+**🔗 Live Demo:** [https://unified-campus-intelligence-eight.vercel.app/](https://unified-campus-intelligence-eight.vercel.app/)
+
 Instead of dumping scattered data (messes, calendars, libraries, weather) into a giant, centralized database using brittle web scrapers, this project utilizes **Model Context Protocol (MCP) Servers** for each distinct data source. An embedded AI Assistant dynamically queries these independent servers in real-time to answer natural-language student queries.
 
 ---
