@@ -299,7 +299,7 @@ Keep your answers helpful, friendly, and structured. Refer to landmarks on campu
       let loopCount = 0;
       while (loopCount < 5) {
         let response: any;
-        let sdkRetries = 3;
+        let sdkRetries = 5;
         let sdkDelay = 1000;
 
         for (let i = 0; i < sdkRetries; i++) {
@@ -314,8 +314,14 @@ Keep your answers helpful, friendly, and structured. Refer to landmarks on campu
             });
             break;
           } catch (err: any) {
-            const isRateLimit = err.message?.includes("429") || err.status === 429 || JSON.stringify(err).includes("429");
-            if (isRateLimit && i < sdkRetries - 1) {
+            const errStr = JSON.stringify(err) + (err.message || "");
+            const isRetryable = 
+              err.status === 429 || err.status === 500 || err.status === 503 ||
+              errStr.includes("429") || errStr.includes("500") || errStr.includes("503") ||
+              errStr.toLowerCase().includes("overloaded") || errStr.toLowerCase().includes("unavailable") ||
+              errStr.toLowerCase().includes("high demand");
+
+            if (isRetryable && i < sdkRetries - 1) {
               await new Promise((resolve) => setTimeout(resolve, sdkDelay));
               sdkDelay *= 2;
               continue;
@@ -432,7 +438,7 @@ Keep your answers helpful, friendly, and structured. Refer to landmarks on campu
         };
 
         let response: any;
-        let restRetries = 3;
+        let restRetries = 5;
         let restDelay = 1000;
 
         for (let i = 0; i < restRetries; i++) {
@@ -445,7 +451,10 @@ Keep your answers helpful, friendly, and structured. Refer to landmarks on campu
             body: JSON.stringify(requestPayload)
           });
 
-          if (response.status === 429 && i < restRetries - 1) {
+          const isRetryStatus = 
+            response.status === 429 || response.status === 500 || response.status === 503;
+
+          if (isRetryStatus && i < restRetries - 1) {
             await new Promise((resolve) => setTimeout(resolve, restDelay));
             restDelay *= 2;
             continue;
