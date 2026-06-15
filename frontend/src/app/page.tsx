@@ -71,11 +71,17 @@ export default function Dashboard() {
   useEffect(() => {
     if (selectedDay) {
       fetchWeather();
-      fetchMessMenu();
       fetchEvents();
       searchAcademics("exam"); // default load exam schedules
     }
-  }, [selectedDay, bhawan, selectedMeal]);
+  }, [selectedDay]);
+
+  // Fetch cafeteria mess menu data only when bhawan, selectedDay, or selectedMeal changes
+  useEffect(() => {
+    if (selectedDay) {
+      fetchMessMenu();
+    }
+  }, [bhawan, selectedDay, selectedMeal]);
 
   // Scroll utilities
   useEffect(() => {
