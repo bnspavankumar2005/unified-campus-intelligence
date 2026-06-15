@@ -485,13 +485,15 @@ body::after {
   color: var(--text-muted);
 }
 
-/* AI Assistant Sticky Panel (Perfect Scroll & Desktop Float) */
+/* AI Assistant Sticky Panel (Perfect Scroll & Integrated Sidebar) */
 .assistant-panel {
   display: flex;
   flex-direction: column;
   height: calc(100vh - 48px); /* Height matches viewport minus page padding */
   position: sticky;
   top: 24px;
+  border-left: 1px solid var(--border-subtle);
+  padding-left: 24px;
 }
 
 @media (max-width: 1100px) {
@@ -499,6 +501,8 @@ body::after {
     position: static;
     height: 500px;
     max-height: 500px;
+    border-left: none;
+    padding-left: 0;
   }
 }
 

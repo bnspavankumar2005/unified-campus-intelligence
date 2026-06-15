@@ -563,7 +563,7 @@ export default function Dashboard() {
       </main>
 
       {/* RIGHT COLUMN: AI Assistant Panel */}
-      <aside className="assistant-panel glass-card">
+      <aside className="assistant-panel">
         <div className="widget-title">
           <span>AI Assistant (Friday)</span>
         </div>
@@ -571,9 +571,6 @@ export default function Dashboard() {
         <div className="chat-messages-container">
           {messages.map((msg, idx) => (
             <div key={idx} className={`chat-row ${msg.role}`}>
-              {msg.role === "assistant" && (
-                <div className="assistant-avatar">🤖</div>
-              )}
               <div className={`chat-bubble ${msg.role}`}>
                 {msg.role === "assistant" ? (
                   <div className="markdown-text" dangerouslySetInnerHTML={{ 
@@ -589,7 +586,6 @@ export default function Dashboard() {
           ))}
           {chatLoading && (
             <div className="chat-row assistant">
-              <div className="assistant-avatar">🤖</div>
               <div className="chat-bubble assistant" style={{ fontStyle: "italic", color: "var(--text-muted)" }}>
                 Thinking and querying MCP servers...
               </div>
