@@ -40,7 +40,7 @@ export default function Dashboard() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content: "Hello! I am Aura, your IITR Campus Intelligence Assistant. Ask me anything about the Mahatma Gandhi Central Library (MGCL), Cautley/Rajendra mess menus, fests (Thomso, Cognizance), or academic calendar cutoffs and rules!"
+      content: "Hello! I am Friday, your IITR Campus Intelligence Assistant. Ask me anything about the Mahatma Gandhi Central Library (MGCL), Cautley/Rajendra mess menus, fests (Thomso, Cognizance), or academic calendar cutoffs and rules!"
     }
   ]);
   const [chatInput, setChatInput] = useState("");
@@ -304,7 +304,7 @@ export default function Dashboard() {
                   </div>
                 </div>
                 <div style={{ marginTop: "12px", fontSize: "0.78rem", color: "var(--text-muted)", borderTop: "1px solid rgba(75,85,99,0.2)", paddingTop: "8px" }}>
-                  <strong>Aura's Advice:</strong> {weatherData.campusAdvice}
+                  <strong>Friday's Advice:</strong> {weatherData.campusAdvice}
                 </div>
               </div>
             ) : (
@@ -559,7 +559,7 @@ export default function Dashboard() {
       {/* RIGHT COLUMN: AI Assistant Panel */}
       <aside className="assistant-panel glass-card">
         <div className="widget-title">
-          <span>AI Assistant (Aura)</span>
+          <span>AI Assistant (Friday)</span>
         </div>
 
         <div className="chat-messages-container">
